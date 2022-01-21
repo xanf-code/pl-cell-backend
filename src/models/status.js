@@ -5,4 +5,4 @@ const statusSchema = new Schema({
     status: String,
 });
 
-module.exports = model('status', statusSchema);
+module.exports = model('Status', statusSchema);

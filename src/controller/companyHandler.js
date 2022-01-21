@@ -1,12 +1,12 @@
-const addStatus = require("../service/addStatusService");
-const getStatus = require("../service/getStatus");
+const addCompany = require("../service/addCompany");
+const getCompanies = require("../service/getCompanies");
 
-async function statusHandler(req, res) {
+async function companyHandler(req, res) {
     try {
-        const status = await addStatus(req.body);
+        const status = await addCompany(req.body);
         if (status) {
             res.status(200).json({
-                message: 'status added successfully',
+                message: 'company added successfully',
             });
         } else {
             res.status(404).json({
@@ -20,11 +20,11 @@ async function statusHandler(req, res) {
     }
 }
 
-async function getAllStatus(req, res) {
+async function getAllCompanies(req, res) {
     try {
-        const status = await getStatus();
-        if (status) {
-            res.status(200).json(status);
+        const company = await getCompanies();
+        if (company) {
+            res.status(200).json(company);
         } else {
             res.status(404).json({
                 message: 'Something went wrong'
@@ -37,4 +37,4 @@ async function getAllStatus(req, res) {
     }
 }
 
-module.exports = { statusHandler, getAllStatus }; 
+module.exports = { companyHandler, getAllCompanies }; 

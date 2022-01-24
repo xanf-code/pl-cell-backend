@@ -1,5 +1,6 @@
 const addStatus = require("../service/addStatusService");
 const getStatus = require("../service/getStatus");
+const removeStatus = require("../service/removeStatus");
 
 async function statusHandler(req, res) {
     try {
@@ -37,4 +38,24 @@ async function getAllStatus(req, res) {
     }
 }
 
-module.exports = { statusHandler, getAllStatus }; 
+async function removeStat(req, res) {
+    const sid = req.params.sid;
+    try {
+        const status = await removeStatus(sid);
+        if (status) {
+            res.status(200).json({
+                message: 'status removed successfully',
+            });
+        } else {
+            res.status(404).json({
+                message: 'Something went wrong'
+            });
+        }
+    }
+    catch (e) {
+        console.log(e);
+        return res.status(400).send(e.message);
+    }
+}
+
+module.exports = { statusHandler, getAllStatus, removeStat }; 

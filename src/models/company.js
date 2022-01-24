@@ -5,11 +5,17 @@ const studentRegistration = new Schema({
     name: String,
     usn: String,
     email: String,
-    mobile: Number,
+    phone: String,
     degree: String,
-    branch: String,
-    CGPA: Number,
-    backlogs: Number,
+    department: String,
+    CGPA: String,
+    backlogs: String,
+    XIIth: String,
+    Xth: String,
+    timestamp: {
+        type: Date,
+        default: Date.now
+    },
 })
 
 const companyMeta = new Schema({
@@ -44,7 +50,8 @@ const companySchema = new Schema({
     registration: [{
         type: studentRegistration,
         _id: false
-    }]
+    }],
+    registers: [String]
 });
 
 module.exports = model('Companies', companySchema);

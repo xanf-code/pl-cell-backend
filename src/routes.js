@@ -1,5 +1,5 @@
-const { companyHandler, getAllCompanies } = require('./controller/companyHandler');
-const { statusHandler, getAllStatus } = require('./controller/statusHandler');
+const { companyHandler, getAllCompanies, updateCompanyHandler, deleteCompany } = require('./controller/companyHandler');
+const { statusHandler, getAllStatus, removeStat } = require('./controller/statusHandler');
 const { updateUserhandler, getAllUser, getUser } = require('./controller/updateUser');
 
 function routes(app) {
@@ -13,9 +13,15 @@ function routes(app) {
 
     app.get('/status', getAllStatus);
 
+    app.delete('/status/:sid', removeStat);
+
+    app.delete('/company/:cid', deleteCompany);
+
     app.post('/add/company', companyHandler);
 
     app.get('/get/companies', getAllCompanies);
+
+    app.patch('/register/details/:cid', updateCompanyHandler);
 }
 
 module.exports = routes;

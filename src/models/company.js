@@ -20,7 +20,7 @@ const studentRegistration = new Schema({
 
 const companyMeta = new Schema({
     companyBond: String,
-    internship: Boolean,
+    internship: String,
     otherDetails: String,
 })
 

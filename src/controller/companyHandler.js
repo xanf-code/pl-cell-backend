@@ -1,4 +1,5 @@
 const addCompany = require("../service/addCompany");
+const getCompanyByID = require("../service/companyById");
 const getCompanies = require("../service/getCompanies");
 const updateRegisteration = require("../service/registerCompany");
 const removeCompany = require("../service/removeCompany");
@@ -79,4 +80,22 @@ async function deleteCompany(req, res) {
     }
 }
 
-module.exports = { companyHandler, getAllCompanies, updateCompanyHandler, deleteCompany }; 
+async function singleCompany(req, res) {
+    const cid = req.params.cid;
+    try {
+        const status = await getCompanyByID(cid);
+        if (status) {
+            res.status(200).json(status);
+        } else {
+            res.status(404).json({
+                message: 'Something went wrong'
+            });
+        }
+    }
+    catch (e) {
+        console.log(e);
+        return res.status(400).send(e.message);
+    }
+}
+
+module.exports = { companyHandler, getAllCompanies, updateCompanyHandler, deleteCompany, singleCompany }; 

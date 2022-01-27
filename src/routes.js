@@ -1,4 +1,5 @@
-const { companyHandler, getAllCompanies, updateCompanyHandler, deleteCompany } = require('./controller/companyHandler');
+const { addEventHandler, getCalendarEvents } = require('./controller/calenderHandler');
+const { companyHandler, getAllCompanies, updateCompanyHandler, deleteCompany, singleCompany } = require('./controller/companyHandler');
 const { statusHandler, getAllStatus, removeStat } = require('./controller/statusHandler');
 const { updateUserhandler, getAllUser, getUser } = require('./controller/updateUser');
 
@@ -21,7 +22,13 @@ function routes(app) {
 
     app.get('/get/companies', getAllCompanies);
 
+    app.get('/get/company/:cid', singleCompany);
+
     app.patch('/register/details/:cid', updateCompanyHandler);
+
+    app.post('/add/events', addEventHandler);
+
+    app.get('/calendar/events', getCalendarEvents);
 }
 
 module.exports = routes;

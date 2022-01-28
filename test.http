@@ -1,0 +1,28 @@
+# POST http://localhost:3001/add/news HTTP/1.1
+# content-type: application/json
+
+# {
+#     "username": "Darshan",
+#     "title": "Dolor ad elit reprehenderit minim ex fugiat velit qui quis.Adipisicing labore ullamco consequat excepteur.Excepteur culpa fugiat adipisicing mollit officia enim officia.",
+#     "content" : "Dolor ad elit reprehenderit minim ex fugiat velit qui quis.Adipisicing labore ullamco consequat excepteur.Excepteur culpa fugiat adipisicing mollit officia enim officia."
+# }
+
+# GET http://localhost:3001/get/news/61f37d201134a8088edebe44 HTTP/1.1
+
+# GET http://localhost:3001/get/news HTTP/1.1
+
+# DELETE  http://localhost:3001/delete/news/61f37d201134a8088edebe44 HTTP/1.1
+
+POST http://localhost:3001/add/forum/post HTTP/1.1
+content-type: application/json
+
+{
+    "uid" : "61f37d201134a88edee41242",
+    "username": "Dhanshs",
+    "userPic": "https://lh3.googleusercontent.com/ogw/ADea4I7zPlZ-hsRY6Z4-dx3d-v-7Oe_9NOUO9hjVD0hWVxw=s192-c-mo",
+    "title": "Veniam consequat et ad voluptate minim esse.",
+    "content": "Minim veniam proident aliquip mollit. Cupidatat consectetur esse sint et minim enim sint ex quis aliqua dolor. Esse quis aliquip nulla consectetur ipsum occaecat pariatur. Consectetur ut est ipsum deserunt reprehenderit dolore ullamco officia cupidatat eiusmod deserunt labore. Veniam ea est laborum minim adipisicing. Veniam culpa dolore duis ea do nulla occaecat est minim sit non enim velit laborum.",
+    "tag": "Interview"
+}
+
+# GET http://localhost:3001/get/forum/posts HTTP/1.1
